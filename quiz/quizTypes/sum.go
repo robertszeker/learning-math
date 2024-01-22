@@ -7,11 +7,21 @@ import (
 	"time"
 )
 
-func RunSumQuiz(max int) (success bool) {
+const QuizTypeSum = "sum"
+
+type Sum struct{}
+
+func NewSumQuiz() *Sum {
+	return &Sum{}
+}
+
+func (s Sum) Run(maxSum int) bool {
+
+	var success bool
 
 	rand.Seed(time.Now().UnixNano())
-	summand1 := rand.Intn(max - 1)
-	summand2 := rand.Intn(max-summand1) + 1
+	summand1 := rand.Intn(maxSum - 1)
+	summand2 := rand.Intn(maxSum-summand1) + 1
 	quizString := fmt.Sprint(summand1, " + ", summand2, " = ")
 
 	answer := util.GetAnswer(quizString)

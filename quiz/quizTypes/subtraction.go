@@ -7,7 +7,17 @@ import (
 	"time"
 )
 
-func RunSubQuiz(max int) (success bool) {
+const QuizTypeSub = "sub"
+
+type Subtraction struct{}
+
+func NewSubtractionQuiz() *Subtraction {
+	return &Subtraction{}
+}
+
+func (s Subtraction) Run(max int) bool {
+
+	var success bool
 
 	rand.Seed(time.Now().UnixNano())
 	minuend := rand.Intn(max-1) + 1

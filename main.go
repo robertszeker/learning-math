@@ -14,7 +14,6 @@ func main() {
 func mainInternal() error {
 	config := quiz.NewConfig()
 	runner := quiz.NewRunner(config)
-	runner.RunQuiz()
 
-	return nil
+	return runner.RunQuiz()
 }
