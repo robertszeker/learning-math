@@ -1,7 +1,8 @@
-package quiz
+package quizTypes
 
 import (
 	"fmt"
+	"github.com/robertszeker/math-problems/quiz/util"
 	"math/rand"
 	"time"
 )
@@ -13,10 +14,10 @@ func RunSubQuiz(max int) (success bool) {
 	subtrahend := rand.Intn(minuend)
 	quizString := fmt.Sprint(minuend, " - ", subtrahend, " = ")
 
-	answer := GetAnswer(quizString)
+	answer := util.GetAnswer(quizString)
 	expectedAnswer := minuend - subtrahend
 
-	success = EvaluateSolution(expectedAnswer, answer, quizString)
+	success = util.EvaluateSolution(expectedAnswer, answer, quizString)
 
 	return success
 }

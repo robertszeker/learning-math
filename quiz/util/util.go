@@ -1,4 +1,4 @@
-package quiz
+package util
 
 import (
 	"bufio"
@@ -34,7 +34,6 @@ func EvaluateSolution(expectedAnswer int, answer int, quizString string) bool {
 	for expectedAnswer != answer {
 		success = false
 		fmt.Println("wrong, try again!")
-		fmt.Print(quizString)
 		answer = GetAnswer(quizString)
 	}
 
