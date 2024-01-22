@@ -26,10 +26,10 @@ func (s Sum) Run(maxSum int) bool {
 	summand2 := rand.Intn(maxSum-summand1) + 1
 	quizString := fmt.Sprint(summand1, " + ", summand2, " = ")
 
-	answer := util.GetAnswer(quizString)
+	answer := util.GetAnswerInt(quizString)
 	expectedAnswer := summand2 + summand1
 
-	success = util.EvaluateSolution(expectedAnswer, answer, quizString)
+	success = util.EvaluateSolutionInt(expectedAnswer, answer, quizString)
 
 	return success
 }

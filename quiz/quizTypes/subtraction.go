@@ -26,10 +26,10 @@ func (s Subtraction) Run(max int) bool {
 	subtrahend := rand.Intn(minuend)
 	quizString := fmt.Sprint(minuend, " - ", subtrahend, " = ")
 
-	answer := util.GetAnswer(quizString)
+	answer := util.GetAnswerInt(quizString)
 	expectedAnswer := minuend - subtrahend
 
-	success = util.EvaluateSolution(expectedAnswer, answer, quizString)
+	success = util.EvaluateSolutionInt(expectedAnswer, answer, quizString)
 
 	return success
 }

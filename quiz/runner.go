@@ -40,6 +40,8 @@ func (r Runner) determineQuizType() (quizTypes.Runnable, error) {
 		return quizTypes.NewSumQuiz(), nil
 	case quizTypes.QuizTypeSub:
 		return quizTypes.NewSubtractionQuiz(), nil
+	case quizTypes.QuizTypeWords:
+		return quizTypes.NewWordsQuiz(), nil
 	default:
 		return nil, fmt.Errorf("quiz type unknown: %v", r.config.QuizType)
 	}
