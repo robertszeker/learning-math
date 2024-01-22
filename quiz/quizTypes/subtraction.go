@@ -11,6 +11,8 @@ const QuizTypeSub = "sub"
 
 type Subtraction struct{}
 
+var _ Runnable = &Subtraction{}
+
 func NewSubtractionQuiz() *Subtraction {
 	return &Subtraction{}
 }

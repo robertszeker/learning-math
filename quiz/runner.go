@@ -15,10 +15,6 @@ func NewRunner(config *Config) *Runner {
 	}
 }
 
-type quizRunnable interface {
-	Run(difficulty int) bool
-}
-
 func (r Runner) RunQuiz() error {
 
 	difficulty := r.config.Difficulty
@@ -37,7 +33,7 @@ func (r Runner) RunQuiz() error {
 	}
 }
 
-func (r Runner) determineQuizType() (quizRunnable, error) {
+func (r Runner) determineQuizType() (quizTypes.Runnable, error) {
 
 	switch r.config.QuizType {
 	case quizTypes.QuizTypeSum:

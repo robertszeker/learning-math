@@ -11,6 +11,8 @@ const QuizTypeSum = "sum"
 
 type Sum struct{}
 
+var _ Runnable = &Sum{}
+
 func NewSumQuiz() *Sum {
 	return &Sum{}
 }

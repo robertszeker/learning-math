@@ -14,7 +14,7 @@ func NewConfig() *Config {
 
 	var debug = flag.Bool("debug", false, "Enable Debug logging")
 	var difficulty = flag.Int("difficulty", 3, "the initial difficulty")
-	var quizType = flag.String("type", "", "")
+	var quizType = flag.String("type", "sum", "")
 
 	flag.Parse()
 
