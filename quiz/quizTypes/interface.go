@@ -1,5 +1,5 @@
 package quizTypes
 
 type Runnable interface {
-	Run(difficulty int) bool
+	Run(difficulty int) (success bool)
 }

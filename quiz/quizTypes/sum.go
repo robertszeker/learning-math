@@ -24,12 +24,12 @@ func (s Sum) Run(maxSum int) bool {
 	rand.Seed(time.Now().UnixNano())
 	summand1 := rand.Intn(maxSum - 1)
 	summand2 := rand.Intn(maxSum-summand1) + 1
-	quizString := fmt.Sprint(summand1, " + ", summand2, " = ")
+	question := fmt.Sprint(summand1, " + ", summand2, " = ")
 
-	answer := util.GetAnswerInt(quizString)
+	answer := util.GetAnswerInt(question)
 	expectedAnswer := summand2 + summand1
 
-	success = util.EvaluateSolutionInt(expectedAnswer, answer, quizString)
+	success = util.EvaluateSolutionInt(expectedAnswer, answer, question)
 
 	return success
 }

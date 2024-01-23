@@ -12,7 +12,10 @@ func main() {
 }
 
 func mainInternal() error {
-	config := quiz.NewConfig()
+	config, err := quiz.NewConfig()
+	if err != nil {
+		return fmt.Errorf("failed to create config: %w", err)
+	}
 	runner := quiz.NewRunner(config)
 
 	return runner.RunQuiz()

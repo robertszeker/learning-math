@@ -29,7 +29,7 @@ func (r Runner) RunQuiz() error {
 		} else {
 			difficulty--
 		}
-		fmt.Printf("score: %v\n\n", difficulty)
+		fmt.Printf("Punkte: %v\n\n", difficulty)
 	}
 }
 
@@ -42,6 +42,8 @@ func (r Runner) determineQuizType() (quizTypes.Runnable, error) {
 		return quizTypes.NewSubtractionQuiz(), nil
 	case quizTypes.QuizTypeWords:
 		return quizTypes.NewWordsQuiz(), nil
+	case quizTypes.QuizTypeSpelling:
+		return quizTypes.NewSpellingQuiz(r.config.HideFunc), nil
 	default:
 		return nil, fmt.Errorf("quiz type unknown: %v", r.config.QuizType)
 	}
