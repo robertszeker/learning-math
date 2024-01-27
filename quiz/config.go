@@ -46,6 +46,8 @@ func NewConfig() (*Config, error) {
 	return &config, nil
 }
 
+// todo: move hideFunc to... well... not here
+
 func getHideFunc(hideType *string) (func(), error) {
 	switch {
 	case emptyPointer(hideType):

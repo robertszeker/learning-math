@@ -9,7 +9,7 @@ type Words struct {
 	filterWords string
 }
 
-const QuizTypeWords = "letter"
+const QuizTypeWords = "lastLetter"
 
 var _ Runnable = &Words{}
 
@@ -21,7 +21,11 @@ func NewWordsQuiz(filterWords string) *Words {
 
 func (w Words) Run(difficulty int) bool {
 
-	quizWord := util.GetRandomWord(util.FilterWordsFunc(w.filterWords))
+	filterFunc := func(a string) bool {
+		return util.FilterWordsByLengthFunc(difficulty)(a) && util.FilterWordsBySubstringFunc(w.filterWords)(a)
+	}
+
+	quizWord := util.GetRandomWord(filterFunc)
 	wordWithoutLastLetter := quizWord[:len(quizWord)-1]
 	answerLetter := util.GetAnswerString(wordWithoutLastLetter, func() {})
 	answerWord := wordWithoutLastLetter + answerLetter

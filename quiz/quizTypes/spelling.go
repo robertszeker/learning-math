@@ -22,16 +22,9 @@ func NewSpellingQuiz(hideFunc func(), filterWords string) *Spelling {
 }
 
 func (s Spelling) Run(difficulty int) (success bool) {
-	wordLengthShorterThanDifficulty := func(a string) bool {
-		if difficulty < 10 {
-			return len(a) <= 3
-		}
-		steps := 5
-		return len(a) <= difficulty/steps+2
-	}
 
 	filterFunc := func(a string) bool {
-		return wordLengthShorterThanDifficulty(a) && util.FilterWordsFunc(s.filterWords)(a)
+		return util.FilterWordsByLengthFunc(difficulty)(a) && util.FilterWordsBySubstringFunc(s.filterWords)(a)
 	}
 
 	quizWord := util.GetRandomWord(filterFunc)

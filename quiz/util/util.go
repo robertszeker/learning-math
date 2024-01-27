@@ -79,7 +79,7 @@ func EvaluateSolutionString(expectedAnswer string, actualAnswer string, question
 	return success
 }
 
-func FilterWordsFunc(filter string) func(string) bool {
+func FilterWordsBySubstringFunc(filter string) func(string) bool {
 	return func(a string) bool {
 		if filter == "" {
 			return true
@@ -92,6 +92,16 @@ func FilterWordsFunc(filter string) func(string) bool {
 		}
 
 		return false
+	}
+}
+
+func FilterWordsByLengthFunc(length int) func(string) bool {
+	return func(a string) bool {
+		if length < 10 {
+			return len(a) <= 3
+		}
+		steps := 5
+		return len(a) <= length/steps+2
 	}
 }
 
