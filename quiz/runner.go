@@ -43,7 +43,7 @@ func (r Runner) determineQuizType() (quizTypes.Runnable, error) {
 	case quizTypes.QuizTypeWords:
 		return quizTypes.NewWordsQuiz(), nil
 	case quizTypes.QuizTypeSpelling:
-		return quizTypes.NewSpellingQuiz(r.config.HideFunc), nil
+		return quizTypes.NewSpellingQuiz(r.config.HideFunc, r.config.FilterWords), nil
 	default:
 		return nil, fmt.Errorf("quiz type unknown: %v", r.config.QuizType)
 	}
