@@ -41,7 +41,7 @@ func (r Runner) determineQuizType() (quizTypes.Runnable, error) {
 	case quizTypes.QuizTypeSub:
 		return quizTypes.NewSubtractionQuiz(), nil
 	case quizTypes.QuizTypeWords:
-		return quizTypes.NewWordsQuiz(), nil
+		return quizTypes.NewWordsQuiz(r.config.FilterWords), nil
 	case quizTypes.QuizTypeSpelling:
 		return quizTypes.NewSpellingQuiz(r.config.HideFunc, r.config.FilterWords), nil
 	default:

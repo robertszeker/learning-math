@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+// todo: refactor this mess
+
 func GetAnswerInt(question string) int {
 	fmt.Print(question)
 
