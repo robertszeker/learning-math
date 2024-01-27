@@ -26,8 +26,6 @@ func NewConfig() (*Config, error) {
 	var difficulty = flag.Int("difficulty", 3, "the initial difficulty")
 	var quizType = flag.String("type", "", "can be one of: sum, sub, spelling, letter\nsum - train addition\nsub - train subtraction\nspelling - train spelling complete word\nletter - train guessing word by providing last letter")
 	var hideType = flag.String("hide", "", "if given, question will be hidden either after hitting enter or after duration\ncan be one of: enter, [0-9]+[smh]")
-
-	// todo: it should be possible to add more filters
 	var filterWords = flag.String("filter", "", "filter words by given string")
 
 	flag.Parse()

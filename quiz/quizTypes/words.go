@@ -3,7 +3,6 @@ package quizTypes
 import (
 	"fmt"
 	"github.com/robertszeker/math-problems/quiz/util"
-	"strings"
 )
 
 type Words struct {
@@ -22,15 +21,7 @@ func NewWordsQuiz(filterWords string) *Words {
 
 func (w Words) Run(difficulty int) bool {
 
-	filterWordsFunc := func(a string) bool {
-		if w.filterWords == "" {
-			return true
-		}
-
-		return strings.Contains(a, w.filterWords)
-	}
-
-	quizWord := util.GetRandomWord(filterWordsFunc)
+	quizWord := util.GetRandomWord(util.FilterWordsFunc(w.filterWords))
 	wordWithoutLastLetter := quizWord[:len(quizWord)-1]
 	answerLetter := util.GetAnswerString(wordWithoutLastLetter, func() {})
 	answerWord := wordWithoutLastLetter + answerLetter

@@ -3,7 +3,6 @@ package quizTypes
 import (
 	"fmt"
 	"github.com/robertszeker/math-problems/quiz/util"
-	"strings"
 )
 
 type Spelling struct {
@@ -31,16 +30,8 @@ func (s Spelling) Run(difficulty int) (success bool) {
 		return len(a) <= difficulty/steps+2
 	}
 
-	filterWordsByString := func(a string) bool {
-		if s.filterWords == "" {
-			return true
-		}
-
-		return strings.Contains(a, s.filterWords)
-	}
-
 	filterFunc := func(a string) bool {
-		return wordLengthShorterThanDifficulty(a) && filterWordsByString(a)
+		return wordLengthShorterThanDifficulty(a) && util.FilterWordsFunc(s.filterWords)(a)
 	}
 
 	quizWord := util.GetRandomWord(filterFunc)

@@ -79,6 +79,22 @@ func EvaluateSolutionString(expectedAnswer string, actualAnswer string, question
 	return success
 }
 
+func FilterWordsFunc(filter string) func(string) bool {
+	return func(a string) bool {
+		if filter == "" {
+			return true
+		}
+
+		for _, f := range strings.Split(filter, ",") {
+			if strings.Contains(a, f) {
+				return true
+			}
+		}
+
+		return false
+	}
+}
+
 type words []string
 
 func (ws words) Contains(search string) bool {
