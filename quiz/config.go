@@ -19,6 +19,7 @@ type Config struct {
 
 // todo: add config validation
 // todo: add config "all" replacing difficulty
+// todo: add combined math type (sum + sub)
 
 func NewConfig() (*Config, error) {
 
